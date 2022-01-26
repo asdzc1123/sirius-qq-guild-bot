@@ -1,0 +1,17 @@
+﻿<hc:GlowWindow 
+    x:Class="Sirius.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:hc="https://handyorg.github.io/handycontrol" 
+    xmlns:views="clr-namespace:Sirius.UI.Views"
+    mc:Ignorable="d"
+    WindowStartupLocation="CenterScreen"
+    Title="天狼星框架"
+    ActiveGlowColor="{DynamicResource PrimaryColor}"
+    Height="750" 
+    Width="1200">
+
+
+</hc:GlowWindow>

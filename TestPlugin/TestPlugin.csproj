@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <BaseOutputPath>..\build\</BaseOutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sirius.CSharpSDK\Sirius.CSharpSDK.csproj" />
+    <ProjectReference Include="..\Sirius.DTO\Sirius.DTO.csproj" />
+    <ProjectReference Include="..\Sirius.Utils\Sirius.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

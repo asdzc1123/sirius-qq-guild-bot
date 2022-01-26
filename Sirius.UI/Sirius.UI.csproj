@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <BaseOutputPath>..\build</BaseOutputPath>
+    <AssemblyVersion>0.0.1</AssemblyVersion>
+    <FileVersion>0.0.1</FileVersion>
+    <NeutralLanguage>zh-CN</NeutralLanguage>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HandyControl" Version="3.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sirius.CoreCSharp\Sirius.CoreCSharp.csproj" />
+    <ProjectReference Include="..\Sirius.PluginSupport.CSharp\Sirius.PluginSupport.CSharp.csproj" />
+    <ProjectReference Include="..\Sirius.PluginSupport.C\Sirius.PluginSupport.C.csproj" />
+    <ProjectReference Include="..\Sirius.Utils\Sirius.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+LIBRARY
+	EXPORTS
+		OpenApiInit
+		OpenApiMessage
+		OpenApiPostMessage
+		OpenApiRetractMessage
+		OpenApiGuild
+		OpenApiGuildMember
+		OpenApiGuildMembers
+		OpenApiDeleteGuildMember
+		OpenApiGuildMute
+		OpenApiChannel
+		OpenApiChannels
+		OpenApiPostChannel
+		OpenApiPatchChannel
+		OpenApiDeleteChannel
+		OpenApiMe
+		OpenApiMeGuilds
+		OpenApiMemberAddRole
+		OpenApiMemberDeleteRole
+		OpenApiMemberMute

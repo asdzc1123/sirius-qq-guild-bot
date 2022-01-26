@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Sirius.UI.Views.BotTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:local="clr-namespace:Sirius.UI.Views" 
+             xmlns:viewmodels="clr-namespace:Sirius.UI.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!--<UserControl.DataContext>
+        <viewmodels:BotInfoViewModel/>
+    </UserControl.DataContext>-->
+    <StackPanel>
+        <hc:TextBox
+            Margin="20"
+            hc:InfoElement.Placeholder="你的BotID"
+            TextType="Number"
+            ShowClearButton="True"
+            Text="{Binding BotId}"/>
+        <hc:TextBox
+            Margin="20"
+            hc:InfoElement.Placeholder="你的Token"
+            ShowClearButton="True"
+            Text="{Binding BotToken}"/>
+        <Button Style="{StaticResource ButtonPrimary}"
+                Content="启动"
+                Command="{Binding BotStartCommand}"
+                IsEnabled="True"
+                />
+        <hc:Card Margin="0,20,0,0">
+            <StackPanel Orientation="Horizontal">
+                <hc:Gravatar Margin="20" Style="{StaticResource GravatarCircleImg}" Source="{Binding User.Avatar}"/>
+                <StackPanel Margin="20">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="机器人用户名:"/>
+                        <TextBlock Text="{Binding User.UserName}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="机器人ID:"/>
+                        <TextBlock Text="{Binding User.Id}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="特殊关联应用的OpenID:"/>
+                        <TextBlock Text="{Binding User.UnionOpenId}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="机器人关联的用户信息:"/>
+                        <TextBlock Text="{Binding User.UnionUserAccount}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </hc:Card>
+    </StackPanel>
+</UserControl>

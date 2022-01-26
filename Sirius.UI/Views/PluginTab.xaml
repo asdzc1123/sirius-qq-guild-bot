@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="Sirius.UI.Views.PluginTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodels="clr-namespace:Sirius.UI.ViewModels"
+             xmlns:local="clr-namespace:Sirius.UI.Views"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:EnableValueConverter x:Key="EnableValueConverter"/>
+        <local:OptionValueConverter x:Key="OptionValueConverter"/>
+
+    </UserControl.Resources>
+    <!--<UserControl.DataContext>
+        <viewmodels:BotPluginViewModel/>
+    </UserControl.DataContext>-->
+    <Grid>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="18">网络插件绑定的端口号 </TextBlock>
+                    </StackPanel>
+                    <hc:TextBox 
+                        Height="20"
+                        Text="{Binding NetworkPluginServerBindPort}"/>
+                    <Button 
+                        Margin="10"
+                        Style="{StaticResource ButtonPrimary}"
+                        HorizontalAlignment="Center"
+                        Content="启动网络插件服务"
+                        Command="{Binding StartNetworkPluginServerCommand}"
+                        />
+                    <Button 
+                        Margin="10"
+                        Style="{StaticResource ButtonPrimary}"
+                        HorizontalAlignment="Center"
+                        Content="刷新插件列表"
+                        Command="{Binding RefreshPluginInfosCommand}"
+                        />
+                </StackPanel>
+            </StackPanel>
+            <DataGrid ItemsSource="{Binding Plugins}"
+                      AutoGenerateColumns="False"
+                      >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="路径">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="模块">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ModuleName}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="是否是C#">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding IsCSharp}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="状态">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <hc:Card>
+                                    <TextBlock 
+                                        Text="{Binding IsLoaded,Converter={StaticResource EnableValueConverter}}"/>
+                                </hc:Card>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="操作">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <hc:Card>
+                                    <Button 
+                                        Style="{StaticResource ButtonPrimary}"
+                                        Command="{Binding 
+                                        RelativeSource={ RelativeSource AncestorType={
+                                        x:Type local:PluginTab}}, 
+                                        Path=DataContext.OptionItemCommand}"
+                                        CommandParameter="{Binding Path}"
+                                        Content="{Binding IsLoaded,
+                                        Converter={StaticResource OptionValueConverter}}" />
+                                </hc:Card>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

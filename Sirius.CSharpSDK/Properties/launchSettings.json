@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Sirius.CSharpPluginExport": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

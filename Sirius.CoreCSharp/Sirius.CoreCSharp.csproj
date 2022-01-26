@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <BaseOutputPath>..\build\</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PInvoke.Kernel32" Version="0.7.104" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sirius.CoreGoForCSharp\Sirius.CoreGoForCSharp.csproj" />
+    <ProjectReference Include="..\Sirius.CSharpSDK\Sirius.CSharpSDK.csproj" />
+    <ProjectReference Include="..\Sirius.DTO\Sirius.DTO.csproj" />
+    <ProjectReference Include="..\Sirius.PluginSupport\Sirius.PluginSupport.csproj" />
+    <ProjectReference Include="..\Sirius.Utils\Sirius.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

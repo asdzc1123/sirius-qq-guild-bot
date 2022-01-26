@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="Sirius.UI.Views.GoLoggerView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sirius.UI.Views"
+      xmlns:viewmodels="clr-namespace:Sirius.UI.ViewModels"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      d:DataContext="{d:DesignInstance Type=viewmodels:GoLoggerViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      >
+    <UserControl.Resources>
+        <local:GoLogColorConverter x:Key="GoLogColorConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid
+            ItemsSource="{Binding Logs,UpdateSourceTrigger=PropertyChanged}" 
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            AddingNewItem="DataGrid_AddingNewItem"
+            >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="等级">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <hc:Tag ShowCloseButton="False" 
+                                    Content="{Binding Level}"
+                                    Background="{Binding Level,Converter={StaticResource GoLogColorConverter}}">
+                            </hc:Tag>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="时间">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Text="{Binding DateTime}" 
+                                Foreground="{Binding Level,Converter={StaticResource GoLogColorConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="内容" Width="400">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding Content}" 
+                                Foreground="{Binding Level,Converter={StaticResource GoLogColorConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="文件">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding File}" 
+                                Foreground="{Binding Level,Converter={StaticResource GoLogColorConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="行">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding Line}" 
+                                Foreground="{Binding Level,Converter={StaticResource GoLogColorConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="函数名">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding FuncName}" 
+                                Foreground="{Binding Level,Converter={StaticResource GoLogColorConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

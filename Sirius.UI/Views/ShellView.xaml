@@ -1,0 +1,24 @@
+﻿<Page x:Class="Sirius.UI.Views.ShellView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sirius.UI.Views"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Shell">
+    <TabControl 
+        Style="{StaticResource TabControlCapsuleSolid}"
+        TabStripPlacement="Top">
+        <TabItem Header="Bot信息">
+            
+        </TabItem>
+        <TabItem Header="Go日志">
+            <local:GoLoggerView/>
+        </TabItem>
+        <TabItem Header="API日志">
+            <local:OpenApiLoggerView/>
+        </TabItem>
+    </TabControl>
+</Page>

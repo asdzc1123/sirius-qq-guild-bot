@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Sirius.UI": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

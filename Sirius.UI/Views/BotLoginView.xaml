@@ -1,0 +1,101 @@
+﻿<Page x:Class="Sirius.UI.Views.BotLoginView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sirius.UI.Views"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:viewmodels="clr-namespace:Sirius.UI.ViewModels"
+      d:DataContext="{d:DesignInstance Type=viewmodels:BotLoginViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="登录Bot">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <hc:Card Grid.Column="0">
+            <StackPanel>
+                <DockPanel Margin="0,20,0,20">
+                    <TextBlock 
+                        TextAlignment="Center"
+                        Width="60"
+                        Padding="10,0,10,0"
+                        Text="BotId:" 
+                        VerticalAlignment="Center"/>
+                    <hc:TextBox
+                        Margin="0,0,20,0"
+                        hc:InfoElement.Placeholder="输入BodId"
+                        TextType="Number"
+                        ShowClearButton="True"
+                        Text="{Binding BotId,UpdateSourceTrigger=PropertyChanged}"/>
+                </DockPanel>
+
+                <DockPanel Margin="0,0,0,20">
+                    <TextBlock 
+                        TextAlignment="Center"
+                        Width="60"
+                        Grid.Column="0"
+                        Padding="10,0,10,0"
+                        Text="Token" 
+                        VerticalAlignment="Center"/>
+                    <hc:TextBox
+                        Margin="0,0,20,0"
+                        hc:InfoElement.Placeholder="输入Token"
+                        ShowClearButton="True"
+                        Text="{Binding BotToken,UpdateSourceTrigger=PropertyChanged}"/>
+                </DockPanel>
+                <Button
+                    Command="{Binding LoginCommand}"
+                    Content="登录"
+                    Style="{StaticResource ButtonPrimary}"/>
+            </StackPanel>
+        </hc:Card>
+        <hc:Card Grid.Column="1">
+            <StackPanel>
+                <CheckBox
+                        Margin="15"
+                        Content="频道事件"
+                        IsChecked="{Binding EnableGuildEvent}"
+                        />
+                <CheckBox
+                        Margin="15"
+                        Content="频道成员事件"
+                        IsChecked="{Binding EnableGuildMemberEvent}"
+                        />
+                <CheckBox
+                        Margin="15"
+                        Content="子频道事件"
+                        IsChecked="{Binding EnableChennelEvent}"
+                        />
+                <CheckBox
+                        Margin="15"
+                        Content="消息事件"
+                        IsChecked="{Binding EnableMessageEvent}"
+                        />
+                <CheckBox
+                        Margin="15"
+                        Content="表情表态事件"
+                        IsChecked="{Binding EnableMessageReactionEvent}"
+                        />
+                <CheckBox
+                        Margin="15"
+                        Content="@机器人消息事件"
+                        IsChecked="{Binding EnableATMessageEvent}"
+                        />
+                <CheckBox
+                        Margin="15"
+                        Content="私信消息事件"
+                        IsChecked="{Binding EnableDirectMessageEvent}"
+                        />
+                <CheckBox
+                        Margin="15"
+                        Content="音频事件"
+                        IsChecked="{Binding EnableAudioEvent}"
+                        />
+            </StackPanel>
+        </hc:Card>
+    </Grid>
+</Page>
